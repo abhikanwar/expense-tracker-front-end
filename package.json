@@ -12,15 +12,6 @@
     "postinstall": "husky",
     "format": "prettier --write ."
   },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "**/*.{json,css,scss,md}": [
-      "prettier --write"
-    ]
-  },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
     "@tailwindcss/vite": "^4.0.6",
