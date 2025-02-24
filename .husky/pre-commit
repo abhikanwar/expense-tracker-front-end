@@ -1,1 +1,22 @@
-yarn lint:fix
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Color Codes
+RESET='\033[0m'
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+
+# Pre-commit Checks Header
+echo "${BLUE}Executing Pre-Commit Checks...${RESET}"
+
+# Run lint:fix first
+echo "| Code Auto-fixing        | yarn lint:fix       |"
+yarn lint:fix || {
+  echo "| Code Auto-fixing        | yarn lint:fix       | ${RED}FAILED${RESET}        |"
+  echo "-------------------------------------------------------------------------"
+  echo "${RED}ERROR: Auto-fixing failed. Please check your code and retry the commit.${RESET}"
+  exit 1
+}
+echo "| Code Auto-fixing        | yarn lint:fix       | ${GREEN}PASSED${RESET}        |"
+echo "-------------------------------------------------------------------------"
