@@ -5,9 +5,7 @@ import { Button } from "./components/ui/button";
 function App() {
   const [count, setCount] = useState(0);
 
-  const hello = () => {
-    console.log("hello");
-  };
+   
 
   return (
     <>
